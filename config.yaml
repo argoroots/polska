@@ -1,5 +1,4 @@
-locales:
-source: ./source
+source: ./tmp
 build: ./docs
 assets: ./assets
 
@@ -8,7 +7,7 @@ protectedFromCleanup:
     - index.html
 
 jade:
-    basedir: ./source/_templates
+    basedir: ./tmp/_templates
     pretty: false
 markdown:
     html: true

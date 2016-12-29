@@ -1,0 +1,7 @@
+extend /default
+
+
+block body
+    each e in F.entities
+        h2
+            a(href=e.properties.path[0].value)= e.displayname

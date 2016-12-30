@@ -28,7 +28,6 @@ before_script:
     - git clone ${GIT_REPO} ./
     - git checkout gh-pages
     - git pull
-    - ls -la
 
     - cd ${TRAVIS_BUILD_DIR}
     - npm install entu-cms
@@ -41,10 +40,8 @@ after_success:
     - SOURCE_COMMIT=$(git rev-parse --short HEAD)
 
     - cd ${BUILD_DIR}
-    - ls -la
     - git config user.name ${GIT_USER}
     - git config user.email ${GIT_USER}
-    - git status
     - git add -A .
     - git commit -m "Rebuild gh-pages at commit ${SOURCE_COMMIT}"
-    - git push gh-pages
+    - git push

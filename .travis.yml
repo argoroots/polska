@@ -27,10 +27,8 @@ before_script:
     - cd ${BUILD_DIR}
     - git remote add upstream ${GIT_REPO}
     - git fetch upstream
-    - ls -la
     - git checkout -B upstream/gh-pages
-    - ls -la
-    - git pull
+    - git pull upstream/gh-pages
     - ls -la
 
     - cd ${TRAVIS_BUILD_DIR}

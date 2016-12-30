@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -o errexit -o nounset
+
 npm install entu-cms
 
 rm -r ./tmp

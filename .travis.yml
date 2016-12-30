@@ -14,3 +14,6 @@ before_script:
 script:
     - ./node_modules/entu-cms/helpers/entu2yaml.js
     - ./node_modules/entu-cms/build.js ./config.yaml
+
+after_success:
+  - ./deploy.sh

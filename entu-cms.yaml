@@ -7,7 +7,7 @@ protectedFromCleanup:
     - index.html
 
 jade:
-    basedir: ./tmp_sourc/_templates
+    basedir: ./tmp_source/_templates
     pretty: false
 markdown:
     html: true

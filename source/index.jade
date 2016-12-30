@@ -5,5 +5,4 @@ block body
     h1 Polska
 
     each e in F.entities
-        h2
-            a(href=e.properties.path[0].value)= e.displayname
+        a(href=e.properties.path[0].value)= e.displayname

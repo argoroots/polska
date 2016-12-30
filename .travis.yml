@@ -30,12 +30,17 @@ before_script:
     - cp -r ${SOURCE_DIR}/* ${OUT_DIR}
 
     - cd ${BUILD_DIR}
-    - git init
-    - git config user.name ${GIT_USER}
-    - git config user.email ${GIT_USER}
-    - git remote add upstream ${GIT_REPO}
-    - git fetch upstream
-    - git checkout -b upstream/gh-pages
+    - git clone ${GIT_REPO} ./
+    - git checkout gh-pages
+    - git pull
+
+    # - git init
+    # - git config user.name ${GIT_USER}
+    # - git config user.email ${GIT_USER}
+    # - git remote add upstream ${GIT_REPO}
+    # - git fetch upstream
+    # - git checkout -b upstream/gh-pages
+
     - cd ..
 
 script:
@@ -46,4 +51,4 @@ after_success:
     - cd ${BUILD_DIR}
     - git add -A .
     - git commit -m "Rebuild gh-pages at commit ${SOURCE_COMMIT}"
-    - git push -q upstream HEAD:gh-pages
+    - git push

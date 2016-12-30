@@ -35,8 +35,7 @@ before_script:
     - git config user.email ${GIT_USER}
     - git remote add upstream ${GIT_REPO}
     - git fetch upstream
-    - git reset upstream/gh-pages
-    - touch .
+    - git checkout upstream/gh-pages
     - cd ..
 
 script:

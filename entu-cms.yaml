@@ -3,6 +3,7 @@ build: ./build
 assets: ./assets
 
 protectedFromCleanup:
+    - .git
     - assets
     - index.html
 

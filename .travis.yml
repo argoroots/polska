@@ -40,7 +40,7 @@ before_script:
 
 script:
     - ./node_modules/entu-cms/helpers/entu2yaml.js
-    - ./node_modules/entu-cms/build.js ./entu-cms.yaml
+    - ./node_modules/entu-cms/build.js ./entu-cms.yaml cleanup
 
 after_success:
     - cd ${BUILD_DIR}

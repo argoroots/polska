@@ -1,14 +1,20 @@
 language: node_js
+
 node_js:
     - '6'
+
 env:
     - ENTU_URL=https://poola.entu.ee
     - OUT_DIR=./tmp
     - E_DEF=profile
     - TEMPLATE=./source/list-index.jade
     - DATA_LIST=./tmp/entities.yaml
+
 before_script:
     - npm install entu-cms
+    - mkdir ./tmp
+    - cp -r ./source/* ./tmp
+
 script:
     - ./node_modules/entu-cms/helpers/entu2yaml.js
     - ./node_modules/entu-cms/build.js ./config.yaml

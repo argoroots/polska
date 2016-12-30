@@ -16,4 +16,4 @@ script:
     - ./node_modules/entu-cms/build.js ./config.yaml
 
 after_success:
-  - ./deploy.sh
+  - bash ./deploy.sh

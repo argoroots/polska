@@ -16,4 +16,15 @@ script:
     - ./node_modules/entu-cms/build.js ./config.yaml
 
 after_success:
-  - bash ./deploy.sh
+    - SOURCE_COMMIT=$(git rev-parse --short HEAD)
+    - cd docs
+    - git init
+    - git config user.name "Argo Roots"
+    - git config user.email "argo@roots.ee"
+    - git remote add upstream "https://$GH_TOKEN@github.com/argoroots/polska.git"
+    - git fetch upstream
+    - git reset upstream/gh-pages
+    - touch .
+    - git add -A .
+    - git commit -m "Rebuild gh-pages at commit ${SOURCE_COMMIT}"
+    - git push -q upstream HEAD:gh-pages

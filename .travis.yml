@@ -20,23 +20,31 @@ env:
         - DATA_LIST=${OUT_DIR}/entities.yaml
 
 before_script:
+    - pwd
     - SOURCE_COMMIT=$(git rev-parse --short HEAD)
     - npm install entu-cms
     - mkdir ${OUT_DIR}
     - cp -r ${SOURCE_DIR}/* ${OUT_DIR}
+    - mkdir ${BUILD_DIR}
     - cd ${BUILD_DIR}
+    - pwd
     - git clone ${GIT_REPO} ./
     - git checkout -b gh-pages
 
 script:
     - cd ${TRAVIS_BUILD_DIR}
+    - pwd
     - ./node_modules/entu-cms/helpers/entu2yaml.js
     - ./node_modules/entu-cms/build.js ./entu-cms.yaml cleanup
 
 after_success:
     - cd ${BUILD_DIR}
+    - pwd
     - git config user.name ${GIT_USER}
     - git config user.email ${GIT_USER}
+    - git status
     - git add -A .
     - git commit -m "Rebuild gh-pages at commit ${SOURCE_COMMIT}"
+    - git status
     - git push origin gh-pages
+    - git status

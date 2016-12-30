@@ -27,7 +27,7 @@ before_script:
     - cd ${BUILD_DIR}
     - git remote add upstream ${GIT_REPO}
     - git fetch upstream
-    - git checkout -b upstream/gh-pages
+    - git checkout -B upstream/gh-pages
 
     - cd ${TRAVIS_BUILD_DIR}
     - npm install entu-cms

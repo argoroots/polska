@@ -1,5 +1,5 @@
-source: ./tmp
-build: ./docs
+source: ./tmp_source
+build: ./build
 assets: ./assets
 
 protectedFromCleanup:

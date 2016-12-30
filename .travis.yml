@@ -4,19 +4,36 @@ node_js:
     - '6'
 
 env:
-    - ENTU_URL=https://poola.entu.ee OUT_DIR=./tmp_source E_DEF=profile TEMPLATE=./source/list-index.jade DATA_LIST=./tmp_source/entities.yaml
+    global:
+        - GIT_REPO="https://$GH_TOKEN@github.com/argoroots/polska.git"
+        - GIT_USER="Argo Roots"
+        - GIT_EMAIL="argo@roots.ee"
+
+        - BUILD_DIR=./build
+        - SOURCE_DIR=./source
+        - OUT_DIR=./tmp_source
+
+        - ENTU_URL=https://poola.entu.ee
+        - E_DEF=profile
+        - TEMPLATE=${SOURCE_DIR}/list-index.jade
+        - DATA_LIST=${OUT_DIR}/entities.yaml
 
 # Get GitHub token (public_repo) from https://github.com/settings/tokens/new and set it as GH_TOKEN env parameter
 before_script:
+    - SOURCE_COMMIT=$(git rev-parse --short HEAD)
+
     - npm install entu-cms
-    - mkdir ./tmp_source
-    - mkdir ./build
-    - cp -r ./source/* ./tmp_source
-    - cd build
+
+    - mkdir ${OUT_DIR}
+    - mkdir ${BUILD_DIR}
+
+    - cp -r ${SOURCE_DIR}/* ${OUT_DIR}
+
+    - cd ${BUILD_DIR}
     - git init
-    - git config user.name "Argo Roots"
-    - git config user.email "argo@roots.ee"
-    - git remote add upstream "https://$GH_TOKEN@github.com/argoroots/polska.git"
+    - git config user.name ${GIT_USER}
+    - git config user.email ${GIT_USER}
+    - git remote add upstream ${GIT_REPO}
     - git fetch upstream
     - git reset upstream/gh-pages
     - touch .
@@ -27,7 +44,7 @@ script:
     - ./node_modules/entu-cms/build.js ./entu-cms.yaml
 
 after_success:
-    - cd build
+    - cd ${BUILD_DIR}
     - git add -A .
     - git commit -m "Rebuild gh-pages at commit ${SOURCE_COMMIT}"
     - git push -q upstream HEAD:gh-pages

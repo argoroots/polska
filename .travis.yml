@@ -21,21 +21,20 @@ env:
 
 before_script:
     - SOURCE_COMMIT=$(git rev-parse --short HEAD)
-
     - npm install entu-cms
-
     - mkdir ${OUT_DIR}
     - cp -r ${SOURCE_DIR}/* ${OUT_DIR}
-
     - git clone ${GIT_REPO} ${BUILD_DIR}
     - cd ${BUILD_DIR}
     - git checkout -b gh-pages
 
 script:
-    - ../node_modules/entu-cms/helpers/entu2yaml.js
-    - ../node_modules/entu-cms/build.js ../entu-cms.yaml cleanup
+    - cd ${TRAVIS_BUILD_DIR}
+    - ./node_modules/entu-cms/helpers/entu2yaml.js
+    - ./node_modules/entu-cms/build.js ./entu-cms.yaml cleanup
 
 after_success:
+    - cd ${BUILD_DIR}
     - git config user.name ${GIT_USER}
     - git config user.email ${GIT_USER}
     - git add -A .

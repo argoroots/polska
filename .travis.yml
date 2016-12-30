@@ -3,6 +3,7 @@ language: node_js
 node_js:
     - '6'
 
+# Get GitHub token (public_repo) from https://github.com/settings/tokens/new and set it as GH_TOKEN env parameter
 env:
     global:
         - GIT_REPO="https://$GH_TOKEN@github.com/argoroots/polska.git"
@@ -18,35 +19,23 @@ env:
         - TEMPLATE=${SOURCE_DIR}/list-index.jade
         - DATA_LIST=${OUT_DIR}/entities.yaml
 
-# Get GitHub token (public_repo) from https://github.com/settings/tokens/new and set it as GH_TOKEN env parameter
 before_script:
     - SOURCE_COMMIT=$(git rev-parse --short HEAD)
 
     - npm install entu-cms
 
     - mkdir ${OUT_DIR}
-    - mkdir ${BUILD_DIR}
-
     - cp -r ${SOURCE_DIR}/* ${OUT_DIR}
 
+    - git clone ${GIT_REPO} ${BUILD_DIR}
     - cd ${BUILD_DIR}
-    - git clone ${GIT_REPO} ./
-    - git checkout gh-pages
-    - git pull
-
-    # - git init
-    # - git remote add upstream ${GIT_REPO}
-    # - git fetch upstream
-    # - git checkout -b upstream/gh-pages
-
-    - cd ..
+    - git checkout -b gh-pages
 
 script:
-    - ./node_modules/entu-cms/helpers/entu2yaml.js
-    - ./node_modules/entu-cms/build.js ./entu-cms.yaml cleanup
+    - ../node_modules/entu-cms/helpers/entu2yaml.js
+    - ../node_modules/entu-cms/build.js ../entu-cms.yaml cleanup
 
 after_success:
-    - cd ${BUILD_DIR}
     - git config user.name ${GIT_USER}
     - git config user.email ${GIT_USER}
     - git add -A .

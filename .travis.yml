@@ -27,8 +27,8 @@ before_script:
     - cd ${BUILD_DIR}
     - git remote add upstream ${GIT_REPO}
     - git fetch upstream
-    - ls -la
     - git checkout -B upstream/gh-pages
+    - git pull upstream HEAD:gh-pages
     - ls -la
 
     - cd ${TRAVIS_BUILD_DIR}
@@ -48,5 +48,4 @@ after_success:
     - git status
     - git add -A .
     - git commit -m "Rebuild gh-pages at commit ${SOURCE_COMMIT}"
-    - git pull upstream HEAD:gh-pages
     - git push upstream HEAD:gh-pages

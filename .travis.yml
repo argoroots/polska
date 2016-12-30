@@ -23,17 +23,12 @@ before_script:
     - mkdir ${OUT_DIR}
     - cp -r ${SOURCE_DIR}/* ${OUT_DIR}
 
+    - mkdir ${BUILD_DIR}
     - cd ${BUILD_DIR}
     - git clone ${GIT_REPO} ./
     - git checkout gh-pages
     - git pull
     - ls -la
-
-    # - git init ${BUILD_DIR}
-    # - git remote add upstream ${GIT_REPO}
-    # - git fetch upstream
-    # - git checkout -B upstream/gh-pages
-    # - git pull upstream/gh-pages
 
     - cd ${TRAVIS_BUILD_DIR}
     - npm install entu-cms

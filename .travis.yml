@@ -4,11 +4,7 @@ node_js:
     - '6'
 
 env:
-    - ENTU_URL=https://poola.entu.ee
-    - OUT_DIR=./tmp
-    - E_DEF=profile
-    - TEMPLATE=./source/list-index.jade
-    - DATA_LIST=./tmp/entities.yaml
+    - ENTU_URL=https://poola.entu.ee OUT_DIR=./tmp E_DEF=profile TEMPLATE=./source/list-index.jade DATA_LIST=./tmp/entities.yaml
 
 before_script:
     - npm install entu-cms

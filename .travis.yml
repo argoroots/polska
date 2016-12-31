@@ -26,6 +26,7 @@ env:
 before_script:
     - mkdir ${OUT_DIR}
     - cp -r ${SOURCE_DIR}/* ${OUT_DIR}
+    - cp -r ./assets/* ${BUILD_DIR}/assets
 
     - mkdir ${BUILD_DIR}
     - cd ${BUILD_DIR}

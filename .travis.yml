@@ -25,11 +25,11 @@ env:
 
 before_script:
     - mkdir ${OUT_DIR}
-    - mkdir ${BUILD_DIR}/assets
+    - mkdir -p ${BUILD_DIR}/assets
+
     - cp -r ${SOURCE_DIR}/* ${OUT_DIR}
     - cp -r ./assets/* ${BUILD_DIR}/assets
 
-    - mkdir ${BUILD_DIR}
     - cd ${BUILD_DIR}
     - git clone ${GIT_REPO} ./
     - git checkout gh-pages

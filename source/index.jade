@@ -2,9 +2,7 @@ extend /default
 
 
 block body
-    h1 Polska
-
-    each e in F.entities
-        a(href=e.properties.path[0].value)
-            strong= e.displayname
-        br
+    .row
+        each e in F.entities
+            a.col-xs-12(href=e.properties.path[0].value)
+                strong= e.displayname

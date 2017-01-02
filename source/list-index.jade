@@ -3,6 +3,7 @@ extend /default
 
 block vars
     - var title = D.displayname
+    - var photo = D.properties.photo ? D.properties.photo[0].file : null
 
 
 block script
@@ -69,6 +70,7 @@ block content
     .margin
 
     each p, idx in D.properties
-        h2= idx + ':'
-        each v in p
-            != G.md(v.value)
+        if idx !== 'photo' && idx !== 'googleMaps'
+            h2= idx
+            each v in p
+                != G.md(v.value)

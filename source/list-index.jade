@@ -66,11 +66,11 @@ block script
 
 block content
     -
-        var values = function (a) {
+        var values = function (object) {
             var result = []
-            for(var key in objects) {
-                if (!object.hasOwnProperty(variable)) { continue }
-                result.push(objects[key])
+            for(var key in object) {
+                if (!object.hasOwnProperty(key)) { continue }
+                result.push(object[key])
             }
             return result
         }

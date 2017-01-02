@@ -33,4 +33,11 @@ html
 
         script(src='/assets/js/jquery-3.1.1.min.js', type='application/javascript')
         script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCLvF-XJHdyb1STAF38EukXHJpoNC_NwqU', type='application/javascript')
+        script.
+            $(function() {
+                $(window).on('resize', function () {
+                    $('#map').height($(window).height() / 3)
+                }).resize()
+            })
+
         block script

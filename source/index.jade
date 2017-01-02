@@ -4,24 +4,6 @@ extend /default
 block script
     script.
         $(function() {
-            var mapToggle = function () {
-                if(window.location.hash === '#map') {
-                    $('#map-toggle').addClass('hidden')
-                    $('#list-toggle').removeClass('hidden')
-                    $('#map-view').removeClass('hidden')
-                    $('#list-view').addClass('hidden')
-                } else {
-                    $('#map-toggle').removeClass('hidden')
-                    $('#list-toggle').addClass('hidden')
-                    $('#map-view').addClass('hidden')
-                    $('#list-view').removeClass('hidden')
-                }
-            }
-
-            mapToggle()
-
-            $(window).on('hashchange', mapToggle)
-
             var bounds = new google.maps.LatLngBounds()
             var infowindow = new google.maps.InfoWindow()
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -88,20 +70,7 @@ block script
         })
 
 
-block body
-    .container
-        .row
-            .col-xs-4.col-sm-2.col-xs-offset-4.col-sm-offset-5
-                a(href='/')
-                    img.img-responsive(src='/assets/images/logo.png', alt='logo')
-            .col-xs-4.col-md-3.text-right
-                a#map-toggle.hidden.label.label-info(href='#map') kaart
-                a#list-toggle.hidden.label.label-info(href='#list') nimekiri
-
-        #list-view.row
-            each e in F.entities
-                a.list-item.col-xs-12.col-sm-10.col-md-8.col-sm-offset-1.col-md-offset-2(href=e.properties.path[0].value + '/', data-geo=e.properties.geo[0].value, data-info=e.displayinfo)= e.displayname
-
-    .container-fluid
-        #map-view.row
-            #map.col-xs-12
+block content
+    .row
+        each e in F.entities
+            a.list-item.col-xs-12(href=e.properties.path[0].value + '/', data-geo=e.properties.geo[0].value, data-info=e.displayinfo)= e.displayname

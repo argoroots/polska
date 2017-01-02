@@ -63,13 +63,6 @@ block script
         })
 
 
-block body
-    .container-fluid
-        .row
-            #map.col-xs-12
-
-    .container
-        .row
-            .col-xs-12.col-sm-10.col-md-8.col-sm-offset-1.col-md-offset-2
-                h1(data-geo=D.properties.geo[0].value, data-info=D.displayinfo)= D.displayname
-                p= D.displayinfo
+block content
+    h1(data-geo=D.properties.geo[0].value, data-info=D.displayinfo)= D.displayname
+    p= D.displayinfo

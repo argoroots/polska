@@ -22,6 +22,8 @@ block script
 
             $(window).on('hashchange', mapToggle)
 
+            var bounds = new google.maps.LatLngBounds()
+            var infowindow = new google.maps.InfoWindow()
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
                     lat: 59.4370,
@@ -59,9 +61,6 @@ block script
                     }
                 ]
             })
-
-            var bounds = new google.maps.LatLngBounds()
-            var infowindow = new google.maps.InfoWindow()
 
             $('.list-item').each(function () {
                 var position = $(this).data('geo')

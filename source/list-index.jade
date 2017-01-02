@@ -5,6 +5,63 @@ block vars
     - var title = D.displayname
 
 
+block script
+    script.
+        $(function() {
+            var position = $('h1').data('geo')
+
+            if (position) {
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    center: {
+                        lat: parseFloat(position.split(',')[0]),
+                        lng: parseFloat(position.split(',')[1]),
+                    },
+                    zoom: 11,
+                    mapTypeControl: false,
+                    streetViewControl: false,
+                    rotateControl: false,
+                    styles: [
+                        {
+                            'featureType': 'poi.business',
+                            'stylers': [
+                                {
+                                    'visibility': 'off'
+                                }
+                            ]
+                        },
+                        {
+                            'featureType': 'road',
+                            'elementType': 'labels.icon',
+                            'stylers': [
+                                {
+                                    'visibility': 'off'
+                                }
+                            ]
+                        },
+                        {
+                            'featureType': 'transit',
+                            'stylers': [
+                                {
+                                    'visibility': 'off'
+                                }
+                            ]
+                        }
+                    ]
+                })
+
+                var marker = new google.maps.Marker({
+                    position: {
+                        lat: parseFloat(position.split(',')[0]),
+                        lng: parseFloat(position.split(',')[1]),
+                    },
+                    map: map
+                })
+            } else {
+                $('#map-view').addClass('hidden')
+            }
+        })
+
+
 block body
     .row
         .col-xs-4.col-sm-2.col-xs-offset-4.col-sm-offset-5
@@ -12,4 +69,9 @@ block body
                 img.img-responsive(src='/assets/images/logo.png', alt='logo')
 
     .row
-        h1.col-xs-12.col-sm-10.col-md-8.col-sm-offset-1.col-md-offset-2= title
+        .col-xs-12.col-sm-10.col-md-8.col-sm-offset-1.col-md-offset-2
+            h1(data-geo=e.properties.geo[0].value, data-info=e.displayinfo)= D.displayname
+            p= D.displayinfo
+
+    #map-view.row
+        #map.col-xs-12.col-sm-10.col-md-8.col-sm-offset-1.col-md-offset-2

@@ -1,11 +1,53 @@
 extend /default
 
 
+block script
+    script.
+        function initMap() {
+            var uluru = {lat: -25.363, lng: 131.044}
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: uluru
+            })
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            })
+        }
+
+        $(function() {
+            var mapToggle = function () {
+                if(window.location.hash === '#map') {
+                    $('#map-toggle').addClass('hidden')
+                    $('#list-toggle').removeClass('hidden')
+                    $('#map-view').removeClass('hidden')
+                    $('#list-view').addClass('hidden')
+                } else {
+                    $('#map-toggle').removeClass('hidden')
+                    $('#list-toggle').addClass('hidden')
+                    $('#map-view').addClass('hidden')
+                    $('#list-view').removeClass('hidden')
+                }
+            }
+
+            mapToggle()
+
+            $(window).on('hashchange', mapToggle)
+        })
+
+
 block body
     .row
-        a.col-xs-6.col-sm-4.col-xs-offset-3.col-sm-offset-4(href='/')
-            img.img-responsive(src='/assets/images/logo.png', alt='logo')
+        .col-xs-6.col-sm-2.col-xs-offset-3.col-sm-offset-5
+            a(href='/')
+                img.img-responsive(src='/assets/images/logo.png', alt='logo')
+        .col-xs-3.text-right
+            a#map-toggle.hidden.label.label-info(href='#map') kaart
+            a#list-toggle.hidden.label.label-info(href='#list') nimekiri
 
-    .row
+    #list-view.row
         each e in F.entities
             a.item-list.col-xs-12.col-sm-10.col-md-8.col-sm-offset-1.col-md-offset-2(href=e.properties.path[0].value + '/')= e.displayname
+
+    #map-view.row
+        #map

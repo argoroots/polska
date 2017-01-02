@@ -1,10 +1,6 @@
 doctype html
-
-
-block vars
-
-
 html
+    block vars
     head
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1')
@@ -16,3 +12,5 @@ html
         .container
             block body
         script(src='/assets/js/jquery-3.1.1.min.js', type='application/javascript')
+        script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCLvF-XJHdyb1STAF38EukXHJpoNC_NwqU&callback=initMap', type='application/javascript')
+        block script

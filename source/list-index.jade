@@ -66,6 +66,8 @@ block script
 block content
     h1(data-geo=D.properties.geo[0].value, data-info=D.displayinfo)= D.displayname
 
+    .margin
+
     each p, idx in D.properties
         h2= idx + ':'
         each v in p

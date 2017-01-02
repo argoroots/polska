@@ -65,9 +65,22 @@ block script
 
 
 block content
+    -
+        var compare = function (a,b) {
+            if (a.ordinal < b.ordinal) {
+                return -1
+            } else if (a.ordinal > b.ordinal) {
+                return 1
+            } else {
+                return 0
+            }
+        }
+        var properties = Object.values(D.properties)
+        properties.sort(compare)
+        
     h1(data-geo=D.properties.geo.values[0].value, data-info=D.displayinfo)= D.displayname
     .margin
-    each p, idx in D.properties
+    each p, idx in properties
         if p.values && ['path', 'photo', 'googleMaps', 'geo'].indexOf(idx) === -1
             dl.dl-horizontal
                 dt= p.label

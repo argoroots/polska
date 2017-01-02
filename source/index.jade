@@ -76,7 +76,7 @@ block script
                     })
 
                     marker.addListener('click', function() {
-                        infowindow.setContent($(this).text())
+                        infowindow.setContent('<p><a href="' + $(this).attr('href') + '"><strong>' + $(this).text() + '</strong></a></p><p>' + $(this).data('info') + '</p>')
                         infowindow.open(map, this)
                     })
 
@@ -98,7 +98,7 @@ block body
 
     #list-view.row
         each e in F.entities
-            a.list-item.col-xs-12.col-sm-10.col-md-8.col-sm-offset-1.col-md-offset-2(href=e.properties.path[0].value + '/', data-geo=e.properties.geo[0].value)= e.displayname
+            a.list-item.col-xs-12.col-sm-10.col-md-8.col-sm-offset-1.col-md-offset-2(href=e.properties.path[0].value + '/', data-geo=e.properties.geo[0].value, data-info=e.displayinfo)= e.displayname
 
     #map-view.row
         #map.col-xs-12.col-sm-10.col-md-8.col-sm-offset-1.col-md-offset-2

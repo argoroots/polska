@@ -4,13 +4,13 @@ extend /default
 block script
     script.
         function initMap() {
-            var uluru = {lat: -25.363, lng: 131.044}
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
-                center: uluru
+                zoom: 2,
+                mapTypeId: 'terrain',
+                center: {lat: 59.4370, lng: 24.7536}
             })
             var marker = new google.maps.Marker({
-                position: uluru,
+                position: {lat: 59.4370, lng: 24.7536},
                 map: map
             })
         }

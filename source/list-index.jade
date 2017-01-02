@@ -88,8 +88,8 @@ block content
         
     h1(data-geo=D.properties.geo.values[0].value, data-info=D.displayinfo)= D.displayname
     .margin
-    each p, idx in properties
-        if p.values && ['path', 'photo', 'googleMaps', 'geo'].indexOf(idx) === -1
+    each p in properties
+        if p.values && ['path', 'photo', 'googleMaps', 'geo'].indexOf(p.dataproperty) === -1
             dl.dl-horizontal
                 dt= p.label
                 dd

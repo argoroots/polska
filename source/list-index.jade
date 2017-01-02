@@ -66,9 +66,10 @@ block script
 
 block content
     h1(data-geo=D.properties.geo.values[0].value, data-info=D.displayinfo)= D.displayname
+    .margin
     each p, idx in D.properties
         if p.values && ['path', 'photo', 'googleMaps', 'geo'].indexOf(idx) === -1
-            dl.dl-horizontal.margin
+            dl.dl-horizontal
                 dt= p.label
                 dd
                     each v in p.values

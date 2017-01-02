@@ -71,6 +71,9 @@ block content
 
     each p, idx in D.properties
         if p.values && ['path', 'photo', 'googleMaps', 'geo'].indexOf(idx) === -1
-            h2= p.label
-            each v in p.values
-                != G.md(v.value)
+            .row
+                .col-xs-12.col-sm-4.text-right
+                    strong= p.label
+                .col-xs-12.col-sm-8
+                    each v in p.values
+                        != G.md(v.value)

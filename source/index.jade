@@ -89,17 +89,19 @@ block script
 
 
 block body
-    .row
-        .col-xs-4.col-sm-2.col-xs-offset-4.col-sm-offset-5
-            a(href='/')
-                img.img-responsive(src='/assets/images/logo.png', alt='logo')
-        .col-xs-4.col-md-3.text-right
-            a#map-toggle.hidden.label.label-info(href='#map') kaart
-            a#list-toggle.hidden.label.label-info(href='#list') nimekiri
+    .container
+        .row
+            .col-xs-4.col-sm-2.col-xs-offset-4.col-sm-offset-5
+                a(href='/')
+                    img.img-responsive(src='/assets/images/logo.png', alt='logo')
+            .col-xs-4.col-md-3.text-right
+                a#map-toggle.hidden.label.label-info(href='#map') kaart
+                a#list-toggle.hidden.label.label-info(href='#list') nimekiri
 
-    #list-view.row
-        each e in F.entities
-            a.list-item.col-xs-12.col-sm-10.col-md-8.col-sm-offset-1.col-md-offset-2(href=e.properties.path[0].value + '/', data-geo=e.properties.geo[0].value, data-info=e.displayinfo)= e.displayname
+        #list-view.row
+            each e in F.entities
+                a.list-item.col-xs-12.col-sm-10.col-md-8.col-sm-offset-1.col-md-offset-2(href=e.properties.path[0].value + '/', data-geo=e.properties.geo[0].value, data-info=e.displayinfo)= e.displayname
 
-    #map-view.row
-        #map.col-xs-12.col-sm-10.col-md-8.col-sm-offset-1.col-md-offset-2
+    .container-fluid
+        #map-view.row
+            #map.col-xs-12

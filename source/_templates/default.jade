@@ -46,12 +46,13 @@ html
                     $('#image').height($(window).height())
                 }).resize()
 
+                var multiplePointers = $('.list-item').length > 1
                 var bounds = new google.maps.LatLngBounds()
                 var infowindow = new google.maps.InfoWindow()
                 var map = new google.maps.Map(document.getElementById('map'), {
                     center: {
-                        lat: 59.4370,
-                        lng: 24.7536
+                        lat: parseFloat($('.list-item').data('geo').split(',')[0]),
+                        lng: parseFloat($('.list-item').data('geo').split(',')[1])
                     },
                     zoom: 11,
                     scrollwheel: false,
@@ -99,14 +100,15 @@ html
                             title: $(this).text(),
                             map: map
                         })
-
-                        marker.addListener('click', function() {
-                            infowindow.setContent(info)
-                            infowindow.open(map, this)
-                        })
-
-                        bounds.extend(marker.getPosition())
-                        map.fitBounds(bounds)
+                        
+                        if (multiplePointers) {
+                            marker.addListener('click', function() {
+                                infowindow.setContent(info)
+                                infowindow.open(map, this)
+                            })
+                            bounds.extend(marker.getPosition())
+                            map.fitBounds(bounds)
+                        }
                     }
                 })
             })

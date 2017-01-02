@@ -33,7 +33,7 @@ block script
                 rotateControl: false,
                 styles: [
                     {
-                        'elementType': 'labels',
+                        'featureType': 'poi.business',
                         'stylers': [
                             {
                                 'visibility': 'off'
@@ -41,7 +41,8 @@ block script
                         ]
                     },
                     {
-                        'featureType': 'administrative.land_parcel',
+                        'featureType': 'road',
+                        'elementType': 'labels.icon',
                         'stylers': [
                             {
                                 'visibility': 'off'
@@ -49,7 +50,7 @@ block script
                         ]
                     },
                     {
-                        'featureType': 'administrative.neighborhood',
+                        'featureType': 'transit',
                         'stylers': [
                             {
                                 'visibility': 'off'
@@ -66,8 +67,8 @@ block script
                         position: {
                             lat: parseFloat(position.split(',')[0]),
                             lng: parseFloat(position.split(',')[1]),
-                            title: $(this).html()
                         },
+                        title: $(this).html(),
                         map: map
                     })
                 }

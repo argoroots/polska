@@ -60,6 +60,8 @@ block script
                 ]
             })
 
+            var bounds = new google.maps.LatLngBounds()
+
             $('.list-item').each(function () {
                 var position = $(this).data('geo')
                 if (position) {
@@ -71,6 +73,8 @@ block script
                         title: $(this).html(),
                         map: map
                     })
+                    bounds.extend(marker.getPosition())
+                    map.fitBounds(bounds)
                 }
             })
         })

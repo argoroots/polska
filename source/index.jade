@@ -70,7 +70,7 @@ block script
                             lat: parseFloat(position.split(',')[0]),
                             lng: parseFloat(position.split(',')[1]),
                         },
-                        title: $(this).html(),
+                        title: $(this).text(),
                         map: map
                     })
                     bounds.extend(marker.getPosition())

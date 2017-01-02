@@ -63,7 +63,10 @@ block script
                 var position = $(this).data('geo')
                 if (position) {
                     var marker = new google.maps.Marker({
-                        position: position.split(','),
+                        position: {
+                            lat: position.split(',')[0],
+                            lng: position.split(',')[1]
+                        },
                         map: map
                     })
                 }

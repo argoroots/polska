@@ -65,7 +65,8 @@ block script
                     var marker = new google.maps.Marker({
                         position: {
                             lat: parseFloat(position.split(',')[0]),
-                            lng: parseFloat(position.split(',')[1])
+                            lng: parseFloat(position.split(',')[1]),
+                            title: $(this).html()
                         },
                         map: map
                     })

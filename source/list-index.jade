@@ -3,7 +3,7 @@ extend /default
 
 block vars
     - var title = D.displayname
-    - var photo = D.properties.photo.values ? D.properties.photo.values[0].file : null
+    - var photo = D.properties.photo.values ? 'https://poola.entu.ee/api2/file-' + D.properties.photo.values[0].db_value : null
 
 
 block script

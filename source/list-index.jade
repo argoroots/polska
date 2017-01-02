@@ -3,7 +3,7 @@ extend /default
 
 block vars
     - var title = D.displayname
-    - var photo = D.properties.photo ? D.properties.photo[0].file : null
+    - var photo = D.properties.photo.values ? D.properties.photo.values[0].file : null
 
 
 block script
@@ -65,12 +65,12 @@ block script
 
 
 block content
-    h1(data-geo=D.properties.geo[0].value, data-info=D.displayinfo)= D.displayname
+    h1(data-geo=D.properties.geo.values[0].value, data-info=D.displayinfo)= D.displayname
 
     .margin
 
     each p, idx in D.properties
-        if idx !== 'photo' && idx !== 'googleMaps'
-            h2= idx
-            each v in p
+        if p.values && ['path', 'photo', 'googleMaps', 'geo'].indexOf(idx) === -1
+            h2= p.label
+            each v in p.values
                 != G.md(v.value)

@@ -20,6 +20,7 @@ env:
 
         - ENTU_URL=https://poola.entu.ee
         - E_DEF=profile
+        - PARENT_EID=597
         - TEMPLATE=${SOURCE_DIR}/list-index.jade
         - DATA_LIST=${OUT_DIR}/entities.yaml
 

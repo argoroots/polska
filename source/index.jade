@@ -61,6 +61,7 @@ block script
             })
 
             var bounds = new google.maps.LatLngBounds()
+            var infowindow = new google.maps.InfoWindow()
 
             $('.list-item').each(function () {
                 var position = $(this).data('geo')

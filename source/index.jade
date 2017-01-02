@@ -65,10 +65,6 @@ block script
             $('.list-item').each(function () {
                 var position = $(this).data('geo')
                 if (position) {
-                    var infowindow = new google.maps.InfoWindow({
-                        content: $(this).html()
-                    })
-
                     var marker = new google.maps.Marker({
                         position: {
                             lat: parseFloat(position.split(',')[0]),
@@ -79,7 +75,8 @@ block script
                     })
 
                     marker.addListener('click', function() {
-                        infowindow.open(map, marker)
+                        infowindow.setContent($(this).text())
+                        infowindow.open(map, this)
                     })
 
                     bounds.extend(marker.getPosition())

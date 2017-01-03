@@ -28,19 +28,20 @@ html(lang='et')
                 #map.col-xs-12
 
         #content.container-fluid
-            .container
-                .row
-                    .margin.col-xs-4.col-xs-offset-4.col-sm-2.col-sm-offset-0
-                        a(href='/')
-                            img.img-responsive(src='/assets/images/logo.png', alt='logo')
+            .row
+                .container
+                    .row
+                        .margin.col-xs-4.col-xs-offset-4.col-sm-2.col-sm-offset-0
+                            a(href='/')
+                                img.img-responsive(src='/assets/images/logo.png', alt='logo')
 
-                    block content
-                        .margin.col-xs-12.col-sm-8.col-md-7.col-md-offset-1
-                            .row
-                                each e in F.entities
-                                    a.list-item.col-xs-12(href=e.properties.path.values[0].value + '/', data-geo=e.properties.geo.values[0].value, data-info=e.displayinfo)= e.displayname
+                        block content
+                            .margin.col-xs-12.col-sm-8.col-md-7.col-md-offset-1
+                                .row
+                                    each e in F.entities
+                                        a.list-item.col-xs-12(href=e.properties.path.values[0].value + '/', data-geo=e.properties.geo.values[0].value, data-info=e.displayinfo)= e.displayname
 
-                .margin.col-xs-12
+            .row.margin
 
         if image
             .container-fluid

@@ -1,11 +1,13 @@
 $(function() {
     $(window).on('resize', function () {
-        $('#map').height($(window).height() / 3)
-        $('#content').height(($(window).height() / 3) * 2)
+        var height = $(window).height()
+        
+        $('#map').height(height / 3)
 
         if ($('#image').length) {
-            $('#image').height($(window).height())
-            $('#content').css('margin-bottom', $(window).height() + 'px')
+            $('#image').height(height)
+            $('#content').css('min-height', (height / 3) * 2 + 'px')
+            $('#content').css('margin-bottom', height + 'px')
         } else {
             $('#content').css('border-bottom', 'none')
         }

@@ -2,13 +2,11 @@ extend /index
 
 
 block vars
-    - var title = D.displayname
-    - var description = D.displayinfo
-    - var image = D.properties.photo.values ? 'https://poola.entu.ee/api2/file-' + D.properties.photo.values[0].db_value : null
-
-
-block content
-    -
+    - 
+        var title = D.displayname
+        var description = D.displayinfo
+        var image = D.properties.photo.values ? 'https://poola.entu.ee/api2/file-' + D.properties.photo.values[0].db_value : null
+        
         var values = function (object) {
             var result = []
             for(var key in object) {
@@ -28,14 +26,17 @@ block content
         }
         var properties = values(D.properties)
         properties.sort(compare)
-        
-    h1= D.displayname
-    .list-item.hidden(data-geo=D.properties.geo.values[0].value, data-info=D.displayinfo)
 
-    each p in properties
-        if p.values && ['path', 'photo', 'googleMaps', 'geo', 'name'].indexOf(p.dataproperty) === -1
-            dl.dl-horizontal
-                dt= p.label
-                dd
-                    each v in p.values
-                        != G.md(v.value)
+
+block content
+    .margin.col-xs-12.col-sm-10.col-md-9.col-md-offset-1
+        h1= D.displayname
+        .list-item.hidden(data-geo=D.properties.geo.values[0].value, data-info=D.displayinfo)
+
+        each p in properties
+            if p.values && ['path', 'photo', 'googleMaps', 'geo', 'name'].indexOf(p.dataproperty) === -1
+                dl.dl-horizontal
+                    dt= p.label
+                    dd
+                        each v in p.values
+                            != G.md(v.value)

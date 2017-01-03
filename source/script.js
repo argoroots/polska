@@ -1,8 +1,9 @@
 $(function() {
     $(window).on('resize', function () {
         var height = $(window).height()
-        
-        $('#map').height(height / 3)
+
+        $('#map').height((height / 3) + 200)
+        $('#content').css('margin-top', height / 3 + 'px')
 
         if ($('#image').length) {
             $('#image').height(height)
@@ -11,7 +12,12 @@ $(function() {
         } else {
             $('#content').css('border-bottom', 'none')
         }
+
     }).resize()
+
+    $(window).scroll(function () {
+        $('#map-container').css('top', ($(window).scrollTop() * -0.6) - 100 + 'px')
+    })
 
     var multiplePointers = $('.list-item').length > 1
     var bounds = new google.maps.LatLngBounds()

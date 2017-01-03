@@ -16,7 +16,16 @@ $(function() {
     }).resize()
 
     $(window).scroll(function () {
-        $('#map-container').css('top', $(window).scrollTop() * -0.6 + 'px')
+        var scroll = $(window).scrollTop()
+
+        if (scroll > 0) {
+            $('#map-container').css('top', scroll * -0.6 + 'px')
+            $('#content').css('border-top-width', '1px')
+        } else {
+            $('#map').css('top', '0px')
+            $('#map-container').css('top', '0px')
+            $('#content').css('border-top-width', '0px')
+        }
     })
 
     var multiplePointers = $('.list-item').length > 1

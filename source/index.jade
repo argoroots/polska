@@ -1,15 +1,15 @@
 doctype html
-html
+html(lang='et')
     block vars
     head
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1')
+        meta(property='og:url', content='https://polska.ee/' + page.path)
         meta(property='og:title', content=title || page.title)
         meta(property='og:image', content=image || 'https://polska.ee/assets/images/logo.png')
         meta(property='og:description', content=description)
         
-        if title || page.title
-            title= title || page.title
+        title= title || page.title
         
         link(href='/assets/css/bootstrap.min.css', rel='stylesheet', type='text/css')
         link(href='/style.css', rel='stylesheet', type='text/css')

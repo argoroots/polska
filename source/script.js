@@ -2,7 +2,7 @@ $(function() {
     $(window).on('resize', function () {
         var height = $(window).height()
 
-        $('#map-container').height((height / 3) + 200)
+        $('#map-container').height(height / 3)
         $('#content').css('margin-top', height / 3 + 'px')
 
         if ($('#image').length) {
@@ -16,7 +16,7 @@ $(function() {
     }).resize()
 
     $(window).scroll(function () {
-        $('#map-container').css('top', ($(window).scrollTop() * -0.6) - 100 + 'px')
+        $('#map-container').css('top', $(window).scrollTop() * -0.6 + 'px')
     })
 
     var multiplePointers = $('.list-item').length > 1

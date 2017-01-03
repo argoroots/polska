@@ -2,7 +2,7 @@ $(function() {
     $(window).on('resize', function () {
         var height = $(window).height()
 
-        $('#map-container').height(height / 3)
+        $('#map').height(height / 3)
         $('#content').css('margin-top', height / 3 + 'px')
 
         if ($('#image').length) {

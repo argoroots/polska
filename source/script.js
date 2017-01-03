@@ -26,7 +26,7 @@ $(function() {
             $('#content').css('border-top-width', '0px')
         }
 
-        if (('#image').length) {
+        if (('#footer').length) {
             var docViewBottom = docViewTop + window.innerHeight
             var footerTop = $('#footer').offset().top
 

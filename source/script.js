@@ -1,6 +1,6 @@
 $(function() {
     $(window).on('resize', function () {
-        var height = $(window).height()
+        var height = $.windowHeight()
 
         $('#map').height(height / 3)
         $('#content').css('margin-top', height / 3 + 'px')
@@ -16,7 +16,7 @@ $(function() {
 
     $(window).on('scroll', function () {
         var docViewTop = $(window).scrollTop()
-        var docViewBottom = docViewTop + $(window).height()
+        var docViewBottom = docViewTop + $.windowHeight()
         var footerTop = $('#footer').offset().top
 
         if (docViewTop >= 0) {

@@ -1,6 +1,7 @@
 $(function() {
     $(window).on('resize', function () {
         $('#map').height($(window).height() / 3)
+        $('#content').height(($(window).height() / 3) * 2)
 
         if ($('#image').length) {
             $('#image').height($(window).height())

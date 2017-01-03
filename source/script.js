@@ -8,25 +8,32 @@ $(function() {
         if ($('#image').length) {
             $('#image').height(height)
             $('#content').css('min-height', (height / 3) * 1.9 + 'px')
-            $('#content').css('margin-bottom', height + 50 + 'px')
+            $('#content').css('margin-bottom', height + 100 + 'px')
         } else {
             $('#content').css('border-bottom', 'none')
         }
-
     }).resize()
 
-    $(window).scroll(function () {
-        var scroll = $(window).scrollTop()
+    $(window).on('scroll', function () {
+        var docViewTop = $(window).scrollTop()
+        var docViewBottom = docViewTop + $(window).height()
+        var footerTop = $('#footer').offset().top
 
-        if (scroll >= 0) {
-            $('#map-container').css('top', scroll * -0.6 + 'px')
+        if (docViewTop >= 0) {
+            $('#map-container').css('top', docViewTop * -0.6 + 'px')
             $('#content').css('border-top-width', '1px')
         } else {
             $('#map').css('top', '0px')
             $('#map-container').css('top', '0px')
             $('#content').css('border-top-width', '0px')
         }
-    })
+
+        if (footerTop < docViewBottom) {
+            $('#image').css('bottom', docViewBottom - footerTop + 'px')
+        } else {
+            $('#image').css('bottom', '0px')
+        }
+    }).scroll()
 
     var multiplePointers = $('.list-item').length > 1
     var bounds = new google.maps.LatLngBounds()
@@ -74,6 +81,7 @@ $(function() {
         var position = $(this).data('geo')
         if (position) {
             var info = '<p><a href="' + $(this).attr('href') + '"><strong>' + $(this).text() + '</strong></a></p><p>' + $(this).data('info') + '</p>'
+
             var marker = new google.maps.Marker({
                 position: {
                     lat: parseFloat(position.split(',')[0]),

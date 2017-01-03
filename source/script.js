@@ -80,6 +80,7 @@ $(function() {
                     lng: parseFloat(position.split(',')[1]),
                 },
                 title: $(this).text(),
+                clickable: multiplePointers,
                 map: map
             })
 

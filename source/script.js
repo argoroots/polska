@@ -3,7 +3,6 @@ $(function() {
         $('#map').height($(window).height() / 3)
         $('#image').height($(window).height())
 
-        $('#content').css('margin-top', $(window).height() / 3 + 'px')
         $('#content').css('margin-bottom', $(window).height() + 'px')
     }).resize()
 

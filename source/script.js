@@ -16,8 +16,6 @@ $(function() {
 
     $(window).on('scroll', function () {
         var docViewTop = $(window).scrollTop()
-        var docViewBottom = docViewTop + window.innerHeight
-        var footerTop = $('#footer').offset().top
 
         if (docViewTop >= 0) {
             $('#map-container').css('top', docViewTop * -0.6 + 'px')
@@ -28,10 +26,15 @@ $(function() {
             $('#content').css('border-top-width', '0px')
         }
 
-        if (footerTop < docViewBottom) {
-            $('#image').css('bottom', docViewBottom - footerTop + 'px')
-        } else {
-            $('#image').css('bottom', '0px')
+        if (('#image').length) {
+            var docViewBottom = docViewTop + window.innerHeight
+            var footerTop = $('#footer').offset().top
+
+            if (footerTop < docViewBottom) {
+                $('#image').css('bottom', docViewBottom - footerTop + 'px')
+            } else {
+                $('#image').css('bottom', '0px')
+            }
         }
     }).scroll()
 

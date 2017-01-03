@@ -23,9 +23,7 @@ html(lang='et')
             ga('send', 'pageview');
 
     body
-        .container-fluid
-            .row
-                #map.col-xs-12
+        #map.container-fluid
 
         .container
             .row
@@ -34,7 +32,7 @@ html(lang='et')
                         img.img-responsive(src='/assets/images/logo.png', alt='logo')
 
                 block content
-                    .margin.col-xs-12.col-sm-8.col-md-7.col-md-offset-1
+                    .margin.col-xs-12.col-sm-8.col-md-6.col-md-offset-1
                         .row
                             each e in F.entities
                                 a.list-item.col-xs-12(href=e.properties.path.values[0].value + '/', data-geo=e.properties.geo.values[0].value, data-info=e.displayinfo)= e.displayname
@@ -42,9 +40,7 @@ html(lang='et')
                 .margin.col-xs-12
 
         if image
-            .container-fluid
-                .row
-                    #image.col-xs-12(style="background-image:url('" + image + "')")
+            #image.container-fluid(style="background-image:url('" + image + "')")
 
         script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCLvF-XJHdyb1STAF38EukXHJpoNC_NwqU', type='application/javascript')
         script(src='/assets/js/jquery-3.1.1.min.js', type='application/javascript')

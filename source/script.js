@@ -1,9 +1,11 @@
 $(function() {
     $(window).on('resize', function () {
         $('#map').height($(window).height() / 3)
-        $('#image').height($(window).height())
 
-        $('#content').css('margin-bottom', $(window).height() + 'px')
+        if ($('#image').length) {
+            $('#image').height($(window).height())
+            $('#content').css('margin-bottom', $(window).height() + 'px')
+        }
     }).resize()
 
     var multiplePointers = $('.list-item').length > 1

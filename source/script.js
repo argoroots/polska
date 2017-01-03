@@ -5,6 +5,8 @@ $(function() {
         if ($('#image').length) {
             $('#image').height($(window).height())
             $('#content').css('margin-bottom', $(window).height() + 'px')
+        } else {
+            $('#content').css('border-bottom', 'none')
         }
     }).resize()
 

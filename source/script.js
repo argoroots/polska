@@ -18,7 +18,7 @@ $(function() {
     $(window).scroll(function () {
         var scroll = $(window).scrollTop()
 
-        if (scroll > 0) {
+        if (scroll >= 0) {
             $('#map-container').css('top', scroll * -0.6 + 'px')
             $('#content').css('border-top-width', '1px')
         } else {

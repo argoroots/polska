@@ -24,24 +24,28 @@ html(lang='et')
 
     body
         #map-container.container-fluid
-            #map
-
-        #content.container
             .row
-                .margin.col-xs-4.col-xs-offset-4.col-sm-2.col-sm-offset-0
-                    a(href='/')
-                        img.img-responsive(src='/assets/images/logo.png', alt='logo')
+                #map.col-xs-12
 
-                block content
-                    .margin.col-xs-12.col-sm-8.col-md-7.col-md-offset-1
-                        .row
-                            each e in F.entities
-                                a.list-item.col-xs-12(href=e.properties.path.values[0].value + '/', data-geo=e.properties.geo.values[0].value, data-info=e.displayinfo)= e.displayname
+        #content.container-fluid
+            .container
+                .row
+                    .margin.col-xs-4.col-xs-offset-4.col-sm-2.col-sm-offset-0
+                        a(href='/')
+                            img.img-responsive(src='/assets/images/logo.png', alt='logo')
+
+                    block content
+                        .margin.col-xs-12.col-sm-8.col-md-7.col-md-offset-1
+                            .row
+                                each e in F.entities
+                                    a.list-item.col-xs-12(href=e.properties.path.values[0].value + '/', data-geo=e.properties.geo.values[0].value, data-info=e.displayinfo)= e.displayname
 
                 .margin.col-xs-12
 
         if image
-            #image.container-fluid(style="background-image:url('" + image + "')")
+            .container-fluid
+                .row
+                    #image.col-xs-12(style="background-image:url('" + image + "')")
 
         script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCLvF-XJHdyb1STAF38EukXHJpoNC_NwqU', type='application/javascript')
         script(src='/assets/js/jquery-3.1.1.min.js', type='application/javascript')

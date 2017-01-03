@@ -24,25 +24,39 @@ h2
     margin-top 40px
 
 .label-info
-    background-color #C52934
+    background-color #c52934
 
     &:hover
     &:active
     &:focus
-        background-color #C52934 !important
+        background-color #c52934 !important
 
 .list-item
     padding-top 10px
     padding-bottom 10px
-    border-top 1px solid #D1D1D1
+    border-top 1px solid #d1d1d1
 
     &:first-child
         border-top none
 
 #map
-    border-bottom 1px solid #D1D1D1
+    position fixed
+    top 0px
+    left 0px
+    right 0px
+    border-bottom 1px solid #d1d1d1
+    z-index -100
+
+#content
+    background #ffffff
+    z-index 0
 
 #image
+    position fixed
+    left 0px
+    right 0px
+    bottom 0px
     background-size cover
     background-position center center
-    border-top 1px solid #D1D1D1
+    border-top 1px solid #d1d1d1
+    z-index -200

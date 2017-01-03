@@ -8,7 +8,7 @@ $(function() {
         if ($('#image').length) {
             $('#image').height(height)
             $('#content').css('min-height', (height / 3) * 1.9 + 'px')
-            $('#content').css('margin-bottom', height + 'px')
+            $('#content').css('margin-bottom', height + 50 + 'px')
         } else {
             $('#content').css('border-bottom', 'none')
         }

@@ -40,8 +40,7 @@ html(lang='et')
                                 .row
                                     each e in F.entities
                                         a.list-item.col-xs-12(href=e.properties.path.values[0].value + '/', data-geo=e.properties.geo.values[0].value, data-info=e.displayinfo)= e.displayname
-
-            .row.margin
+        block footer
 
         if image
             .container-fluid

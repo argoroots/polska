@@ -16,4 +16,4 @@ DATA_LIST=./tmp_source/entities.yaml \
 ./node_modules/entu-cms/helpers/entu2yaml.js && \
 rm -rf ./build
 
-./entu-cms/build.js ./entu-cms.yaml
+./node_modules/entu-cms/build.js ./entu-cms.yaml

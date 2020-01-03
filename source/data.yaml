@@ -1,4 +1,3 @@
-page:
-    title: Polska on lähedal
-    data:
-        entities: entities.yaml
+title: Polska on lähedal
+data:
+    entities: item/data.yaml

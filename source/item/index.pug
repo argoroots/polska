@@ -1,0 +1,34 @@
+extends /_templates/main.pug
+
+
+block content
+    .margin.col-xs-12.col-sm-10.col-md-9.col-md-offset-1
+        h1= self.name
+        .list-item.hidden(data-geo=self.geo, data-info=self.info)
+
+        dl.dl-horizontal.margin
+            each p in self.properties
+                if self[p.id]
+                    dt= p.label
+                    dd
+                        if Array.isArray(self[p.id])
+                            each v in self[p.id]
+                                != self.md(v)
+                        else
+                            != self.md(self[p.id])
+
+
+block image
+    if self.photo
+        .container-fluid
+            .row
+                if Array.isArray(self.photo)
+                    #image.col-xs-12(style=`background-image:url('https://api.entu.app/property/${self.photo[0]._id}?account=poola&download')`)
+                else
+                    #image.col-xs-12(style=`background-image:url('https://api.entu.app/property/${self.photo._id}?account=poola&download')`)
+
+block footer
+    #footer.container-fluid
+        .row
+            a.col-xs-12.text-center(href='/')
+                span.glyphicon.glyphicon-chevron-left

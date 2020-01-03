@@ -1,0 +1,18 @@
+{
+  "name": "polska",
+  "version": "1.0.0",
+  "description": "polska.ee site source",
+  "private": true,
+  "dependencies": {
+    "entu-ssg": "5.2.1"
+  },
+  "scripts": {
+    "build": "entu-ssg entu-ssg.yaml full",
+    "dev": "node ./node_modules/entu-ssg/src/serve.js ./entu-ssg.yaml full"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/argoroots/polska.git"
+  },
+  "homepage": "https://polska.ee"
+}

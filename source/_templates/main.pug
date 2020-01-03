@@ -1,18 +1,4 @@
 block vars
-    -
-        var entities = F.entities
-
-        if (entities) {
-            entities.sort(function (a, b) {
-                if (a.displayname < b.displayname) {
-                    return -1
-                } else if (a.displayname > b.displayname) {
-                    return 1
-                } else {
-                    return 0
-                }
-            })
-        }
 
 
 doctype html
@@ -20,12 +6,12 @@ html(lang='et')
     head
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1')
-        meta(property='og:url', content='https://polska.ee/' + page.path + '/')
-        meta(property='og:title', content=title || page.title)
-        meta(property='og:image', content=image || 'https://polska.ee/assets/images/polska-logo-square.png')
-        meta(property='og:description', content=description)
+        meta(property='og:url', content='https://polska.ee/' + self.path + '/')
+        meta(property='og:title', content=self.name)
+        meta(property='og:image', content='https://polska.ee/assets/images/polska-logo-square.png')
+        meta(property='og:description', content=self.info)
 
-        title= title || page.title
+        title= self.name
 
         link(href='https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i', rel='stylesheet', type='text/css')
         link(href='/assets/css/bootstrap.min.css', rel='stylesheet', type='text/css')
@@ -40,7 +26,7 @@ html(lang='et')
             ga('send', 'pageview');
 
     body
-        #map-container.container-fluid
+        //- #map-container.container-fluid
             .row
                 #map.col-xs-12
 
@@ -53,18 +39,11 @@ html(lang='et')
                                 img.img-responsive(src='/assets/images/polska-logo.png', alt='logo')
 
                         block content
-                            if entities
-                                .margin.col-xs-12.col-sm-8.col-md-7.col-md-offset-1
-                                    .row
-                                        each e in entities
-                                            a.list-item.col-xs-12(href=e.properties.path.values[0].value + '/', data-geo=e.properties.geo.values[0].value, data-info=e.displayinfo)= e.displayname
+
             .margin
         block footer
 
-        if image
-            .container-fluid
-                .row
-                    #image.col-xs-12(style="background-image:url('" + image + "')")
+        block image
 
         script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCLvF-XJHdyb1STAF38EukXHJpoNC_NwqU', type='application/javascript')
         script(src='/assets/js/jquery-3.1.1.min.js', type='application/javascript')

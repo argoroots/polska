@@ -11,7 +11,7 @@ html(lang='et')
         meta(property='og:image', content='https://polska.ee/assets/images/polska-logo-square.png')
         meta(property='og:description', content=self.info)
 
-        title= self.name
+        title= self.name ? self.name + ' · Polska on lähedal' : 'Polska on lähedal'
 
         link(href='https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i', rel='stylesheet', type='text/css')
         link(href='/assets/css/bootstrap.min.css', rel='stylesheet', type='text/css')

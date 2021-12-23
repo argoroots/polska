@@ -4,7 +4,7 @@
   "description": "polska.ee site source",
   "private": true,
   "dependencies": {
-    "entu-ssg": "5.2.1"
+    "entu-ssg": "5.3.0"
   },
   "scripts": {
     "build": "entu-ssg entu-ssg.yaml full",

@@ -29,12 +29,6 @@ $(function() {
         if ($('#footer').length) {
             var docViewBottom = docViewTop + window.innerHeight
             var footerTop = $('#footer').offset().top
-
-            if (footerTop < docViewBottom) {
-                $('#image').css('bottom', docViewBottom - footerTop + 'px')
-            } else {
-                $('#image').css('bottom', '0px')
-            }
         }
     }).scroll()
 

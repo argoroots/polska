@@ -24,6 +24,7 @@
         Omand: |
             mälestustahvli andis PV Suursaatkond kasutamiseks üle Tallinna Linnavalitsusele
 
+
 -
     path: /fryderyk-chopini-pink
     name: Fryderyk Chopini pink
@@ -61,6 +62,7 @@
             [Narva Rahvusvahelise F. Chopini Konkursi kohta](https://www.narva.ee/chopin)
         Trivia: |
             Pingi paigaldas Poola Vabariigi Suursaatkond koostöös Tallinna Linnavalitsusega Chopini 2010 Aasta raames.Pingi paigaldas Poola Vabariigi Suursaatkond koostöös Tallinna Linnavalitsusega Chopini 2010 Aasta raames.
+
 
 -
     path: /fryderyk-chopini-roosiaed
@@ -102,6 +104,7 @@
         Trivia: |
             Esialgse idee järgi Chopini roosiaed pidi asuma Kadriorus. Pidi olema Playeli klaverikujuline, klaviatuuriga Poola musastst graniidist ninh eesti valgest paekivist. Linnavalitsuse otsusel tema aupaigaks sai G.Otsa nim. Muusikakooli + tulevase Teatri- ja Muusikamuuseumi ees oleval väljakul Vabaduse Väljaku juures.
 
+
 -
     path: /jan-kochanowski-pink
     name: Jan Kochanowski Pink
@@ -128,6 +131,7 @@
         Tekst infotahvlil: |
             Jan Kochanowski Pink Poola Pärnasalus
             Poola Vabariigi Tallinna Suursaatkonna kingitus Laiusele
+
 
 -
     path: /joulukaart-2020
@@ -225,11 +229,13 @@
 
             Poola Vabariigi Suursaatkond Tallinnas
 
+
 -
     path: /solidarnost
     name: Solidaarsuse kivi
     geo: 59.4336432,24.7444888
     photo: solidarnost.jpg
+    soundcloud: 298941280
     properties:
         Pildiallkiri: |
             Solidaarsuse kivi
@@ -272,7 +278,6 @@
             [Rohkem liikumisest Solidarność](https://www.ecs.gda.pl/)
         Trivia: |
             Infotahvli, mis asub kõnnitee paremal pool kujundas samuti Aime Kullbusch. Selle paigaldas Tallinna Linnavalitsus aastal 2015.
-        Audiotekst: |
 
 
 -

@@ -32,19 +32,17 @@ jobs:
       with:
         node-version: 16.x
 
-    - name: Build Docs
+    - name: Build
       run: |
         npm install
         npm run build
 
-    - name: Copy assets
-      run: |
-        mkdir -p ./_site/assets
-        cp -r ./assets/* ./_site/assets
-        cp ./assets/robots.txt ./_site/
-
     - name: Upload artifact
-      uses: actions/upload-pages-artifact@v1
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: |
+          _site
+          assets
 
   # Deployment job
   deploy:

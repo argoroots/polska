@@ -8,13 +8,13 @@ html(lang='et')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         meta(property='og:url', content='https://polska.ee/' + self.path + '/')
         meta(property='og:title', content=self.name)
-        meta(property='og:image', content='https://polska.ee/assets/images/polska-logo-square.png')
+        meta(property='og:image', content='https://polska.ee/images/polska-logo-square.png')
         meta(property='og:description', content=self.info)
 
         title= self.name ? self.name + ' · Polska on lähedal' : 'Polska on lähedal'
 
         link(href='https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i', rel='stylesheet', type='text/css')
-        link(href='/assets/css/bootstrap.min.css', rel='stylesheet', type='text/css')
+        link(href='/css/bootstrap.min.css', rel='stylesheet', type='text/css')
         link(href='/style.css', rel='stylesheet', type='text/css')
 
         script(src='https://plausible.io/js/plausible.js' defer data-domain='polska.ee')
@@ -29,7 +29,7 @@ html(lang='et')
                     .row
                         .margin.col-xs-4.col-xs-offset-4.col-sm-2.col-sm-offset-0
                             a(href='/')
-                                img.img-responsive(src='/assets/images/polska-logo.png', alt='logo')
+                                img.img-responsive(src='/images/polska-logo.png', alt='logo')
 
                         block content
 
@@ -39,5 +39,5 @@ html(lang='et')
         block image
 
         script(src='https://maps.googleapis.com/maps/api/js?key=' + self.env.GOOGLE_KEY)
-        script(src='/assets/js/jquery-3.1.1.min.js')
+        script(src='/js/jquery-3.1.1.min.js')
         script(src='/script.js')
